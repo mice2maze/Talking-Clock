@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Talking_Clock.Views.NewItemPage"
+             Shell.PresentationMode="ModalAnimated"
+             Title="New Item"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true">
+    <ContentPage.Content>
+
+        <TableView Intent="Settings" >
+            <TableRoot>
+                <TableSection>
+                    <SwitchCell  Text="Speech" On ="{Binding UseSpeech}" />
+                    <SwitchCell Text="Notification" On ="{Binding UseMsg}" />
+                </TableSection>
+                <TableSection Title="Week Days">
+                    <ViewCell>
+                        <Grid VerticalOptions="CenterAndExpand" Padding = "20, 0" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label  Grid.Column = "0" HorizontalOptions = "Start"  Text = "Mon" />
+                            <Switch  Grid.Column = "0" HorizontalOptions = "End"  IsToggled="{Binding isMon}" />
+                            <Label  Grid.Column = "1" HorizontalOptions = "Start"  XAlign = "End" Text = "Tue" VerticalOptions = "Center" TextColor = "Gray" />
+                            <Switch  Grid.Column = "1" HorizontalOptions = "End" IsToggled="{Binding isTue}"  />
+                            <Label  Grid.Column = "2" HorizontalOptions = "Start"  XAlign = "End" Text = "Wed" VerticalOptions = "Center" TextColor = "Gray" />
+                            <Switch  Grid.Column = "2" HorizontalOptions = "End" IsToggled="{Binding isWed}"  />
+                            <Label  Grid.Column = "3" HorizontalOptions = "Start"  XAlign = "End" Text = "Thur" VerticalOptions = "Center" TextColor = "Gray" />
+                            <Switch  Grid.Column = "3" HorizontalOptions = "End" IsToggled="{Binding isThur}"  />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid VerticalOptions="CenterAndExpand" Padding = "20, 0" >
+                            <Label  Grid.Column = "0" HorizontalOptions = "Start"  Text = "Fri" />
+                            <Switch  Grid.Column = "0" HorizontalOptions = "End"  IsToggled="{Binding isFri}" />
+                            <Label  Grid.Column = "1" HorizontalOptions = "Start"  XAlign = "End" Text = "Sat" VerticalOptions = "Center" TextColor = "Gray" />
+                            <Switch  Grid.Column = "1" HorizontalOptions = "End" IsToggled="{Binding isSat}"  />
+                            <Label  Grid.Column = "2" HorizontalOptions = "Start"  XAlign = "End" Text = "Sun" VerticalOptions = "Center" TextColor = "Gray" />
+                            <Switch  Grid.Column = "2" HorizontalOptions = "End" IsToggled="{Binding isSun}"  />
+                            <Label  Grid.Column = "3" HorizontalOptions = "Start"  XAlign = "Start" Text = "PH" VerticalOptions = "Center" TextColor = "Gray" />
+                            <Switch  Grid.Column = "3" HorizontalOptions = "End" IsToggled="True"  />
+                        </Grid>
+                    </ViewCell>
+                </TableSection>
+                <TableSection Title="Hours">
+                    <ViewCell>
+                        <Grid VerticalOptions="CenterAndExpand" Padding = "20, 0" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label  Grid.Column = "0" HorizontalOptions = "Start" VerticalOptions="Center" Text = "00" />
+                            <Label  Grid.Column = "1" HorizontalOptions = "Start" VerticalOptions="Center" Text = "01" />
+                            <Label  Grid.Column = "2" HorizontalOptions = "Start" VerticalOptions="Center" Text = "02" />
+                            <Label  Grid.Column = "3" HorizontalOptions = "Start" VerticalOptions="Center" Text = "03" />
+                            <Label  Grid.Column = "4" HorizontalOptions = "Start" VerticalOptions="Center" Text = "04" />
+                            <Label  Grid.Column = "5" HorizontalOptions = "Start" VerticalOptions="Center" Text = "05" />
+                            <CheckBox Grid.Column = "0" HorizontalOptions = "End"    IsChecked="{Binding isHr00}" />
+                            <CheckBox Grid.Column = "1" HorizontalOptions = "End"   IsChecked="{Binding isHr01}" />
+                            <CheckBox Grid.Column = "2" HorizontalOptions = "End"   IsChecked="{Binding isHr02}" />
+                            <CheckBox Grid.Column = "3" HorizontalOptions = "End"   IsChecked="{Binding isHr03}" />
+                            <CheckBox Grid.Column = "4" HorizontalOptions = "End"   IsChecked="{Binding isHr04}" />
+                            <CheckBox Grid.Column = "5" HorizontalOptions = "End"   IsChecked="{Binding isHr05}" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid VerticalOptions="CenterAndExpand" Padding = "20, 0" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label  Grid.Column = "0" HorizontalOptions = "Start" VerticalOptions="Center" Text = "06" />
+                            <Label  Grid.Column = "1" HorizontalOptions = "Start" VerticalOptions="Center" Text = "07" />
+                            <Label  Grid.Column = "2" HorizontalOptions = "Start" VerticalOptions="Center" Text = "08" />
+                            <Label  Grid.Column = "3" HorizontalOptions = "Start" VerticalOptions="Center" Text = "09" />
+                            <Label  Grid.Column = "4" HorizontalOptions = "Start" VerticalOptions="Center" Text = "10" />
+                            <Label  Grid.Column = "5" HorizontalOptions = "Start" VerticalOptions="Center" Text = "11" />
+                            <CheckBox Grid.Column = "0" HorizontalOptions = "End"   IsChecked="{Binding isHr06}" />
+                            <CheckBox Grid.Column = "1" HorizontalOptions = "End"   IsChecked="{Binding isHr07}" />
+                            <CheckBox Grid.Column = "2" HorizontalOptions = "End"   IsChecked="{Binding isHr08}" />
+                            <CheckBox Grid.Column = "3" HorizontalOptions = "End"   IsChecked="{Binding isHr09}" />
+                            <CheckBox Grid.Column = "4" HorizontalOptions = "End"   IsChecked="{Binding isHr10}" />
+                            <CheckBox Grid.Column = "5" HorizontalOptions = "End"   IsChecked="{Binding isHr11}" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid VerticalOptions="CenterAndExpand" Padding = "20, 0" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label  Grid.Column = "0" HorizontalOptions = "Start" VerticalOptions="Center" Text = "12" />
+                            <Label  Grid.Column = "1" HorizontalOptions = "Start" VerticalOptions="Center" Text = "13" />
+                            <Label  Grid.Column = "2" HorizontalOptions = "Start" VerticalOptions="Center" Text = "14" />
+                            <Label  Grid.Column = "3" HorizontalOptions = "Start" VerticalOptions="Center" Text = "15" />
+                            <Label  Grid.Column = "4" HorizontalOptions = "Start" VerticalOptions="Center" Text = "16" />
+                            <Label  Grid.Column = "5" HorizontalOptions = "Start" VerticalOptions="Center" Text = "17" />
+                            <CheckBox Grid.Column = "0" HorizontalOptions = "End"   IsChecked="{Binding isHr12}" />
+                            <CheckBox Grid.Column = "1" HorizontalOptions = "End"   IsChecked="{Binding isHr13}" />
+                            <CheckBox Grid.Column = "2" HorizontalOptions = "End"   IsChecked="{Binding isHr14}" />
+                            <CheckBox Grid.Column = "3" HorizontalOptions = "End"   IsChecked="{Binding isHr15}" />
+                            <CheckBox Grid.Column = "4" HorizontalOptions = "End"   IsChecked="{Binding isHr16}" />
+                            <CheckBox Grid.Column = "5" HorizontalOptions = "End"   IsChecked="{Binding isHr17}" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid VerticalOptions="CenterAndExpand" Padding = "20, 00" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label  Grid.Column = "0" HorizontalOptions = "Start" VerticalOptions="Center" Text = "18" />
+                            <Label  Grid.Column = "1" HorizontalOptions = "Start" VerticalOptions="Center" Text = "19" />
+                            <Label  Grid.Column = "2" HorizontalOptions = "Start" VerticalOptions="Center" Text = "20" />
+                            <Label  Grid.Column = "3" HorizontalOptions = "Start" VerticalOptions="Center" Text = "21" />
+                            <Label  Grid.Column = "4" HorizontalOptions = "Start" VerticalOptions="Center" Text = "22" />
+                            <Label  Grid.Column = "5" HorizontalOptions = "Start" VerticalOptions="Center" Text = "23" />
+                            <CheckBox Grid.Column = "0" HorizontalOptions = "End"   IsChecked="{Binding isHr18}" />
+                            <CheckBox Grid.Column = "1" HorizontalOptions = "End"   IsChecked="{Binding isHr19}" />
+                            <CheckBox Grid.Column = "2" HorizontalOptions = "End"   IsChecked="{Binding isHr20}" />
+                            <CheckBox Grid.Column = "3" HorizontalOptions = "End"   IsChecked="{Binding isHr21}" />
+                            <CheckBox Grid.Column = "4" HorizontalOptions = "End"   IsChecked="{Binding isHr22}" />
+                            <CheckBox Grid.Column = "5" HorizontalOptions = "End"   IsChecked="{Binding isHr23}" />
+                        </Grid>
+                    </ViewCell>
+                </TableSection>
+                <TableSection>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Grid.Row="0" HorizontalOptions = "Start" VerticalOptions="Center" Text="Select Language"/>
+                            <Picker Grid.Column="1" Grid.Row="0"  VerticalOptions="Start" SelectedItem="{Binding LangCCDesc}" Title="Select Language">
+                            <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Hong Kong</x:String>
+                                        <x:String>English</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                        </Grid>
+                    </ViewCell>
+                </TableSection>
+                <TableSection>
+                    <ViewCell>
+                        <Grid VerticalOptions="CenterAndExpand" Padding = "20, 00" >
+                            <Button Grid.Column = "0" Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
+                            <Button Grid.Column = "1" Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+                        </Grid>
+                    </ViewCell>
+                </TableSection>
+
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+    
+</ContentPage>
