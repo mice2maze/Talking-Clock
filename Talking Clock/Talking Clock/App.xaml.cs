@@ -11,9 +11,9 @@ namespace Talking_Clock
     {
         public static Locale gLocale;
         public static int gLangID;
-        public static int gHour= 0;
-        public static int gMin = 0;
-        public static int gSec = 0;
+        //public static int gHour= 0;
+        //public static int gMin = 0;
+        //public static int gSec = 0;
         public static string gButtonLabel = "Start Hour Count Down";
         public static bool gCountDown=false;
         public static string[] LangSpeech = { "依家係", "點", "It's", "O'clock" };

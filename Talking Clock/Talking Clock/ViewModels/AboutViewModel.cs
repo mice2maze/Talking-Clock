@@ -29,12 +29,16 @@ namespace Talking_Clock.ViewModels
         private void AddHours()
         {
             DateTime dateTime;
-            dateTime = DateTime.Now; 
-            App.gCountDown = true;
-            App.gHour = App.gHour > 3 ? App.gHour : App.gHour + 1;
-            App.gMin = dateTime.Minute;
-            App.gSec = dateTime.Second;
-            ButtonLabel = App.gHour > 1 ? App.gHour + " Hours Count Down" : App.gHour + " Hour Count Down";
+            dateTime = DateTime.Now;
+            App.gCountDown = App.gCountDown ? false : true;
+
+            // App.gCountDown = true;
+            // App.gHour = App.gHour > 3 ? App.gHour : App.gHour + 1;
+            // App.gMin = dateTime.Minute;
+            // App.gSec = dateTime.Second;
+            // ButtonLabel = App.gHour > 1 ? App.gHour + " Hours Count Down" : App.gHour + " Hour Count Down";
+            ButtonLabel = App.gCountDown? "Hour count down starting (Click to stop)": "Start Hour Count Down";
+            Console.WriteLine("Count Down - "+App.gCountDown);
         }
         private async void OnAddItem(object obj)
         {
@@ -63,7 +67,7 @@ namespace Talking_Clock.ViewModels
 
             Device.StartTimer(TimeSpan.FromSeconds(1),  () => {
                 this.DateTime = DateTime.Now;
-                int ChkMins = 00;
+                int ChkMins = 0;
                 int spCode = 0;
                 int hour_only = this.DateTime.Hour;
                 int minute_only = this.DateTime.Minute;
@@ -105,8 +109,9 @@ namespace Talking_Clock.ViewModels
                 PisHr22 = Preferences.Get("Hour22", false);
                 PisHr23 = Preferences.Get("Hour23", false);
 
-                if ((PisMon && week_day==1) || (PisTue && week_day==2) || (PisWed && week_day == 3) || (PisThur && week_day==4) ||
-                    (PisFri && week_day == 5) || (PisSat && week_day==6) || (PisSun && week_day == 7)) {
+                if ((PisMon && week_day == 1) || (PisTue && week_day == 2) || (PisWed && week_day == 3) || (PisThur && week_day == 4) ||
+                    (PisFri && week_day == 5) || (PisSat && week_day == 6) || (PisSun && week_day == 7) || App.gCountDown)
+                {
                     if ((PisHr00 && hour_only == 0 && minute_only == ChkMins && second_only == 0) ||
                         (PisHr01 && hour_only == 1 && minute_only == ChkMins && second_only == 0) ||
                         (PisHr02 && hour_only == 2 && minute_only == ChkMins && second_only == 0) ||
@@ -130,39 +135,40 @@ namespace Talking_Clock.ViewModels
                         (PisHr20 && hour_only == 20 && minute_only == ChkMins && second_only == 0) ||
                         (PisHr21 && hour_only == 21 && minute_only == ChkMins && second_only == 0) ||
                         (PisHr22 && hour_only == 22 && minute_only == ChkMins && second_only == 0) ||
-                        (PisHr23 && hour_only == 23 && minute_only == ChkMins && second_only == 0))
+                        (PisHr23 && hour_only == 23 && minute_only == ChkMins && second_only == 0) ||
+                        (App.gCountDown && minute_only == ChkMins && second_only == 0))
                     {
                         spkTime = true;
                     }
-
-                    if (App.gMin == minute_only && App.gSec == second_only )
+                }
+//                if (App.gMin == minute_only && App.gSec == second_only )
+//                {                        
+//                    if (App.gHour > 0)
+//                    {
+//                        App.gHour--;
+//                    } else 
+//                    { 
+//                        spkTime = true; 
+//                    }
+//                }
+            
+                if (spkTime)
+                {
+                    SpeechOptions settings = new SpeechOptions()
                     {
-                        
-                        if (App.gHour > 0)
-                        {
-                            App.gHour--;
-                        } else 
-                        { 
-                            spkTime = true; 
-                        }
-                    }
-                    if (spkTime) {
-                        SpeechOptions settings = new SpeechOptions()
-                        {
-                            Volume = 1.00f,
-                            Pitch = 0.75f,
-                            Locale = App.gLocale
-                        };
-
-                        spCode = App.gLangID;
-                        task = TextToSpeech.SpeakAsync(App.LangSpeech[spCode] + hour_only + App.LangSpeech[spCode + 1], settings).ContinueWith((t) =>
-                        {
-                            // Logic that will run after utterance finishes.
-                            spkTime = false;
-                            Console.WriteLine(App.LangSpeech[spCode] + hour_only + App.LangSpeech[spCode +1] + minute_only + ":" + second_only + " On : " + week_day + "; ");
-
-                        }, TaskScheduler.FromCurrentSynchronizationContext());
-                    }
+                        Volume = 1.00f,
+                        Pitch = 0.75f,
+                        Locale = App.gLocale
+                    };
+                    spkTime = false;
+                    spCode = App.gLangID;
+                    task = TextToSpeech.SpeakAsync(App.LangSpeech[spCode] + hour_only + App.LangSpeech[spCode + 1], settings).ContinueWith((t) =>
+                    {
+                        // Logic that will run after utterance finishes.
+                        Console.WriteLine(App.LangSpeech[spCode] + hour_only + App.LangSpeech[spCode + 1] + " " + minute_only + ":" + second_only + " On : " + week_day + "; ");
+                        Console.WriteLine("SpkTime = " + spkTime);
+                    }, TaskScheduler.FromCurrentSynchronizationContext());
+                
                 }
                 return true;
             }
