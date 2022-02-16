@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.talking_clock" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="cucock.clock" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="29" android:targetSdkVersion="29" />
-	<application android:label="Talking_Clock.Android" android:theme="@style/MainTheme" android:icon="@drawable/xamarin_logo"></application>
+	<application android:label="Talking_Clock.Android" android:theme="@style/MainTheme" android:icon="@drawable/alarm_clock"></application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
 	<uses-permission android:name="com.android.alarm.permission.SET_ALARM" />

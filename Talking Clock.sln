@@ -7,7 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Talking Clock.Android", "Ta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Talking Clock.iOS", "Talking Clock\Talking Clock.iOS\Talking Clock.iOS.csproj", "{AE4AE005-051C-4628-8525-49AA224FF575}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Talking Clock", "Talking Clock\Talking Clock\Talking Clock.csproj", "{5EE66419-8637-4089-B475-C1190628A50D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Talking Clock", "Talking Clock\Talking Clock\Talking Clock.csproj", "{5EE66419-8637-4089-B475-C1190628A50D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AF1495CE-6760-4875-8521-28ECF6E7A8E6}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

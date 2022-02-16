@@ -21,7 +21,6 @@ namespace Talking_Clock
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }
         protected override void OnStart()
